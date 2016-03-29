@@ -4,5 +4,8 @@
         "src/*.js",
         "tests/*_tests.js"
     ],
-    "phantomjs_debug_port": "7358"
+    "phantomjs_debug_port": "7358",
+    "test_page": [
+        "tests/jasminerunnerpolyfill.mustache"
+    ]
 }
