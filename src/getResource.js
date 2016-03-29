@@ -1,11 +1,10 @@
-var apiGlobals = {
-    apiUrl:"http://pokeapi.co/api/",
-    apiVersion: "v2",
-}
+var PokeApi = PokeApi || {};
+PokeApi.apiUrl = "http://pokeapi.co/api/";
+PokeApi.apiVersion = "v2";
 
-function getResource(resource) {
-    return new Promise(function(resolve, reject){
-        fetch(apiGlobals.apiUrl + apiGlobals.apiVersion + "/" + resource).then(function(response) {
+PokeApi.getResource = function getResource(resource) {
+    return new Promise(function(resolve, reject) {
+        fetch(PokeApi.apiUrl + PokeApi.apiVersion + "/" + resource).then(function(response) {
             // handle HTTP response
             if(response.ok){
                 response.json().then(function(responseJson){resolve(responseJson)});
@@ -16,6 +15,16 @@ function getResource(resource) {
         }, function(error) {
             // handle network error
             reject(error.message);
+        })
+    })
+}
+
+PokeApi.getBerry = function getBerry(id) {
+    return new Promise(function(resolve, reject) {
+        PokeApi.getResource("berry/" + id).then(function(response) {
+            resolve(response);
+        }).catch(function(error){
+            reject(error);
         })
     })
 }

@@ -1,9 +1,9 @@
 describe("getResource()", function(){
-    it("should return correct pokemon data", function(){
+    it("should return correct pokemon resource data", function(){
         runs(function() {
             flag = false;
             
-            getResource("pokemon/1").then(function(response){
+            PokeApi.getResource("pokemon/1").then(function(response){
                 if(response.name === "bulbasaur"){
                    flag=true;
                 };
@@ -15,11 +15,11 @@ describe("getResource()", function(){
         }, "json data should have been returned", 10000); 
     })
     
-    it("should return correct move data", function(){
+    it("should return correct move resource data", function(){
         runs(function() {
             flag = false;
             
-            getResource("move/13").then(function(response){
+            PokeApi.getResource("move/13").then(function(response){
                 if(response.power === 80){
                    flag=true;
                 };
@@ -31,11 +31,11 @@ describe("getResource()", function(){
         }, "json data should have been returned", 10000); 
     })
     
-    it("should return correct ability data", function(){
+    it("should return correct ability resource data", function(){
         runs(function() {
             flag = false;
             
-            getResource("ability/4").then(function(response){
+            PokeApi.getResource("ability/4").then(function(response){
                 if(response.is_main_series === true){
                    flag=true;
                 };
