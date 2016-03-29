@@ -1,7 +1,7 @@
 # pokeapi.js
 A simple JavaScript wrapper for the PokéAPI (v2)
 ## General
-This is a simple wraper for the [PokéAPI](pokeapi.co) by [Paul Hallett](phalt.co). It is written in JavaScript and uses modern technologies like fetch and promises. Here is the compatibility table in case you are concerned about support for ancient browsers.
+This is a simple wraper for the [PokéAPI](http://pokeapi.co) by [Paul Hallett](http://phalt.co). It is written in JavaScript and uses modern technologies like fetch and promises. Here is the compatibility table in case you are concerned about support for ancient browsers.
 ## Compatibility
 | Compatibility      | pokeapi.js | pokeapi.js + [fetch polyfill](https://github.com/github/fetch) | pokeapi.js + [fetch polyfill](https://github.com/github/fetch) + [es6-promise polyfill](https://github.com/stefanpenner/es6-promise) |
 |--------------------|------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
