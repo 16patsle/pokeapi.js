@@ -3,7 +3,7 @@ describe("getMachine()", function(){
         runs(function() {
             flag = false;
 
-            PokeApi.getItem(11).then(function(response){
+            PokeApi.getMachine(11).then(function(response){
                 if(response.move.name === "hone-claws"){
                    flag=true;
                 };
