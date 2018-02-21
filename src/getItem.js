@@ -1,6 +1,6 @@
 var PokeApi = PokeApi || {};
 
-PokeApi.getItem = function getItem(id) {
+PokeApi.getItem = function (id) {
     return new Promise(function(resolve, reject) {
         PokeApi.getResource("item/" + id).then(function(response) {
             resolve(response);
@@ -10,7 +10,7 @@ PokeApi.getItem = function getItem(id) {
     })
 }
 
-PokeApi.getItemAttribute = function getItemAttribute(id) {
+PokeApi.getItemAttribute = function (id) {
     return new Promise(function(resolve, reject) {
         PokeApi.getResource("item-attribute/" + id).then(function(response) {
             resolve(response);
@@ -20,7 +20,7 @@ PokeApi.getItemAttribute = function getItemAttribute(id) {
     })
 }
 
-PokeApi.getItemCategory = function getItemCategory(id) {
+PokeApi.getItemCategory = function (id) {
     return new Promise(function(resolve, reject) {
         PokeApi.getResource("item-category/" + id).then(function(response) {
             resolve(response);
@@ -30,7 +30,7 @@ PokeApi.getItemCategory = function getItemCategory(id) {
     })
 }
 
-PokeApi.getItemFlingEffect = function getItemFlingEffect(id) {
+PokeApi.getItemFlingEffect = function (id) {
     return new Promise(function(resolve, reject) {
         PokeApi.getResource("item-fling-effect/" + id).then(function(response) {
             resolve(response);
@@ -40,7 +40,7 @@ PokeApi.getItemFlingEffect = function getItemFlingEffect(id) {
     })
 }
 
-PokeApi.getItemPocket = function getItemPocket(id) {
+PokeApi.getItemPocket = function (id) {
     return new Promise(function(resolve, reject) {
         PokeApi.getResource("item-pocket/" + id).then(function(response) {
             resolve(response);

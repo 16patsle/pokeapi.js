@@ -1,6 +1,6 @@
 var PokeApi = PokeApi || {};
 
-PokeApi.getEncounterMethod = function getEncounterMethod(id) {
+PokeApi.getEncounterMethod = function (id) {
     return new Promise(function(resolve, reject) {
         PokeApi.getResource("encounter-method/" + id).then(function(response) {
             resolve(response);
@@ -10,7 +10,7 @@ PokeApi.getEncounterMethod = function getEncounterMethod(id) {
     })
 }
 
-PokeApi.getEncounterCondition = function getEncounterCondition(id) {
+PokeApi.getEncounterCondition = function (id) {
     return new Promise(function(resolve, reject) {
         PokeApi.getResource("encounter-condition/" + id).then(function(response) {
             resolve(response);
@@ -20,7 +20,7 @@ PokeApi.getEncounterCondition = function getEncounterCondition(id) {
     })
 }
 
-PokeApi.getEncounterConditionValue = function getEncounterConditionValue(id) {
+PokeApi.getEncounterConditionValue = function (id) {
     return new Promise(function(resolve, reject) {
         PokeApi.getResource("encounter-condition-value/" + id).then(function(response) {
             resolve(response);

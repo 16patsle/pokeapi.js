@@ -1,6 +1,6 @@
 var PokeApi = PokeApi || {};
 
-PokeApi.getGeneration = function getGeneration(id) {
+PokeApi.getGeneration = function (id) {
     return new Promise(function(resolve, reject) {
         PokeApi.getResource("generation/" + id).then(function(response) {
             resolve(response);
@@ -10,7 +10,7 @@ PokeApi.getGeneration = function getGeneration(id) {
     })
 }
 
-PokeApi.getPokedex = function getPokedex(id) {
+PokeApi.getPokedex = function (id) {
     return new Promise(function(resolve, reject) {
         PokeApi.getResource("pokedex/" + id).then(function(response) {
             resolve(response);
@@ -20,7 +20,7 @@ PokeApi.getPokedex = function getPokedex(id) {
     })
 }
 
-PokeApi.getVersion = function getVersion(id) {
+PokeApi.getVersion = function (id) {
     return new Promise(function(resolve, reject) {
         PokeApi.getResource("version/" + id).then(function(response) {
             resolve(response);
@@ -30,7 +30,7 @@ PokeApi.getVersion = function getVersion(id) {
     })
 }
 
-PokeApi.getVersionGroup = function getVersionGroup(id) {
+PokeApi.getVersionGroup = function (id) {
     return new Promise(function(resolve, reject) {
         PokeApi.getResource("version-group/" + id).then(function(response) {
             resolve(response);

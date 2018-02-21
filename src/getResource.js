@@ -2,7 +2,7 @@ var PokeApi = PokeApi || {};
 PokeApi.apiUrl = "https://pokeapi.co/api/";
 PokeApi.apiVersion = "v2";
 
-PokeApi.getResource = function getResource(resource, options) {
+PokeApi.getResource = function (resource, options) {
     return new Promise(function(resolve, reject) {
         PokeApi.cachedFetch(PokeApi.apiUrl + PokeApi.apiVersion + "/" + resource, options).then(function(response) {
             // handle HTTP response
@@ -19,7 +19,7 @@ PokeApi.getResource = function getResource(resource, options) {
     })
 }
 
-PokeApi.getResourceFromUrl = function getResourceFromUrl(url) {
+PokeApi.getResourceFromUrl = function (url) {
   if(url.indexOf(PokeApi.apiUrl) !== -1 && url.indexOf(PokeApi.apiVersion) !== -1){
     return PokeApi.getResource(url.split('/').slice(5,7).join('/'))
   }

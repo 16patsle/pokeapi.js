@@ -1,6 +1,6 @@
 var PokeApi = PokeApi || {};
 
-PokeApi.getMove = function getMove(id) {
+PokeApi.getMove = function (id) {
     return new Promise(function(resolve, reject) {
         PokeApi.getResource("move/" + id).then(function(response) {
             resolve(response);
@@ -10,7 +10,7 @@ PokeApi.getMove = function getMove(id) {
     })
 }
 
-PokeApi.getMoveAilment = function getMoveAilment(id) {
+PokeApi.getMoveAilment = function (id) {
     return new Promise(function(resolve, reject) {
         PokeApi.getResource("move-ailment/" + id).then(function(response) {
             resolve(response);
@@ -20,7 +20,7 @@ PokeApi.getMoveAilment = function getMoveAilment(id) {
     })
 }
 
-PokeApi.getMoveBattleStyle = function getMoveBattleStyle(id) {
+PokeApi.getMoveBattleStyle = function (id) {
     return new Promise(function(resolve, reject) {
         PokeApi.getResource("move-battle-style/" + id).then(function(response) {
             resolve(response);
@@ -30,7 +30,7 @@ PokeApi.getMoveBattleStyle = function getMoveBattleStyle(id) {
     })
 }
 
-PokeApi.getMoveCategory = function getMoveCategory(id) {
+PokeApi.getMoveCategory = function (id) {
     return new Promise(function(resolve, reject) {
         PokeApi.getResource("move-category/" + id).then(function(response) {
             resolve(response);
@@ -40,7 +40,7 @@ PokeApi.getMoveCategory = function getMoveCategory(id) {
     })
 }
 
-PokeApi.getMoveDamageClass = function getMoveDamageClass(id) {
+PokeApi.getMoveDamageClass = function (id) {
     return new Promise(function(resolve, reject) {
         PokeApi.getResource("move-damage-class/" + id).then(function(response) {
             resolve(response);
@@ -50,7 +50,7 @@ PokeApi.getMoveDamageClass = function getMoveDamageClass(id) {
     })
 }
 
-PokeApi.getMoveLearnMethod = function getMoveLearnMethod(id) {
+PokeApi.getMoveLearnMethod = function (id) {
     return new Promise(function(resolve, reject) {
         PokeApi.getResource("move-learn-method/" + id).then(function(response) {
             resolve(response);
@@ -60,7 +60,7 @@ PokeApi.getMoveLearnMethod = function getMoveLearnMethod(id) {
     })
 }
 
-PokeApi.getMoveTarget = function getMoveTarget(id) {
+PokeApi.getMoveTarget = function (id) {
     return new Promise(function(resolve, reject) {
         PokeApi.getResource("move-target/" + id).then(function(response) {
             resolve(response);

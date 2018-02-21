@@ -1,6 +1,6 @@
 var PokeApi = PokeApi || {};
 
-PokeApi.getMachine = function getMachine(id) {
+PokeApi.getMachine = function (id) {
     return new Promise(function(resolve, reject) {
         PokeApi.getResource("machine/" + id).then(function(response) {
             resolve(response);
