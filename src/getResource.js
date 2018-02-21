@@ -1,5 +1,5 @@
 var PokeApi = PokeApi || {};
-PokeApi.apiUrl = "http://pokeapi.co/api/";
+PokeApi.apiUrl = "https://pokeapi.co/api/";
 PokeApi.apiVersion = "v2";
 
 PokeApi.getResource = function getResource(resource) {
