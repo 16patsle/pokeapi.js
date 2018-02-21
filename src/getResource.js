@@ -19,12 +19,8 @@ PokeApi.getResource = function getResource(resource) {
     })
 }
 
-PokeApi.getBerry = function getBerry(id) {
-    return new Promise(function(resolve, reject) {
-        PokeApi.getResource("berry/" + id).then(function(response) {
-            resolve(response);
-        }).catch(function(error){
-            reject(error);
-        })
-    })
+PokeApi.getResourceFromUrl = function getResourceFromUrl(url) {
+  if(url.indexOf(PokeApi.apiUrl) !== -1 && url.indexOf(PokeApi.apiVersion) !== -1){
+    return PokeApi.getResource(url.split('/').slice(5,7).join('/'))
+  }
 }
