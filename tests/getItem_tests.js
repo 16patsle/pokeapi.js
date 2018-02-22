@@ -42,7 +42,7 @@ describe("getItemCategory()", function(){
             flag = false;
 
             PokeApi.getItemCategory(4).then(function(response){
-                if(response.names.name === "other" && response.pocket.name === "berries"){
+                if(response.name === "other" && response.pocket.name === "berries"){
                    flag=true;
                 };
             });
