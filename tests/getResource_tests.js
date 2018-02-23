@@ -46,6 +46,22 @@ describe("getResource()", function(){
             return flag;
         }, "json data should have been returned", 10000);
     })
+
+    it("should return all type data when id is not defined", function(){
+        runs(function() {
+            flag = false;
+
+            PokeApi.getResource("type/" + undefined).then(function(response){
+                if(response.count >= 20){
+                   flag=true;
+                };
+            });
+        });
+
+        waitsFor(function() {
+            return flag;
+        }, "json data should have been returned", 10000);
+    })
 })
 
 describe("getResourceFromUrl()", function(){
@@ -55,6 +71,22 @@ describe("getResourceFromUrl()", function(){
 
             PokeApi.getResourceFromUrl("https://pokeapi.co/api/v2/ability/4").then(function(response){
                 if(response.is_main_series === true){
+                   flag=true;
+                };
+            });
+        });
+
+        waitsFor(function() {
+            return flag;
+        }, "json data should have been returned", 10000);
+    })
+
+    it("should return all resource data based on url when no id is defined", function(){
+        runs(function() {
+            flag = false;
+
+            PokeApi.getResourceFromUrl("https://pokeapi.co/api/v2/type/" + undefined).then(function(response){
+                if(response.count >= 20){
                    flag=true;
                 };
             });

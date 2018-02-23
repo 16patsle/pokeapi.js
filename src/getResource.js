@@ -3,6 +3,10 @@ PokeApi.apiUrl = "https://pokeapi.co/api/";
 PokeApi.apiVersion = "v2";
 
 PokeApi.getResource = function (resource, options) {
+    resource = resource.split('/')
+    resource[1] = resource[1].replace('undefined','')
+    resource = resource.join('/')
+
     return new Promise(function(resolve, reject) {
         PokeApi.cachedFetch(PokeApi.apiUrl + PokeApi.apiVersion + "/" + resource, options).then(function(response) {
             // handle HTTP response
