@@ -7,8 +7,23 @@ This is a simple wraper for the [PokéAPI](http://pokeapi.co) by [Paul Hallett](
 ## Install
 While v1 is working just fine, it has no good way to install yet. The contents of `src/cachedFetch.js` and `src/getResource.js` need to be loaded for the other methods to work. The rest of the files can be included as needed.
 
+## Usage
+The library adds the global variable `PokeApi`. All methods can be accessed on this object.
+
+### Example
+This code will fetch the data for Cinccino, the Pokémon with id 573, and log the name to the console.
+
+```javascript
+PokeApi.getPokemon(573).then(function(response){
+  console.log(response.name) // "cinccino"
+});
+```
+
+### API Docs
+Docs for the data the api returns can be found on the [API's website](https://pokeapi.co/docsv2/)
+
 ## Testing
-This library uses Testem along with Jasmine for testing. To run the test suite in CI mode:
+This library uses [Testem](https://github.com/testem/testem) along with [Jasmine](https://jasmine.github.io/) for testing. To run the test suite in CI mode:
 
 ```
 npm test
