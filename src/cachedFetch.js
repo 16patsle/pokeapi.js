@@ -42,7 +42,7 @@ PokeApi.cachedFetch = function(url, options, fetchOptions) {
     }
   }
 
-  return fetch(url, fetchOptions).then(response => {
+  return fetch(url, fetchOptions).then(function(response) {
     // let's only store in cache if the content-type is
     // JSON or something non-binary
     if (response.status === 200) {
