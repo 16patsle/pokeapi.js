@@ -2,13 +2,16 @@
   "name": "pokeapi.js",
   "version": "1.0.0",
   "description": "A simple JavaScript wrapper for the PokéAPI (v2), with simple built-in caching",
-  "main": "-",
+  "main": "dist/bundle.js",
+  "module": "dist/bundle.esm.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
+    "pretest": "npm run build",
     "test": "testem ci",
-    "test:dev": "testem"
+    "test:dev": "testem",
+    "build": "rollup -c && rollup -c -f es -o dist/bundle.esm.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +31,11 @@
   },
   "homepage": "https://github.com/16patsle/pokeapi.js#readme",
   "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.13.0",
+    "babel-preset-env": "^1.6.1",
+    "rollup": "^0.56.2",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-babel-minify": "^4.0.0",
     "testem": "^2.0.0"
   }
 }

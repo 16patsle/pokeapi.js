@@ -1,8 +1,8 @@
-var PokeApi = PokeApi || {};
+import {getResource} from './getResource';
 
-PokeApi.getLanguage = function (id) {
+export function getLanguage (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("language/" + id).then(function(response) {
+        getResource("language/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);

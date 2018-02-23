@@ -1,8 +1,8 @@
-var PokeApi = PokeApi || {};
+import {getResource} from './getResource';
 
-PokeApi.getEvolutionChain = function (id) {
+export function getEvolutionChain (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("evolution-chain/" + id).then(function(response) {
+        getResource("evolution-chain/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -10,9 +10,9 @@ PokeApi.getEvolutionChain = function (id) {
     })
 }
 
-PokeApi.getEvolutionTrigger = function (id) {
+export function getEvolutionTrigger (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("evolution-trigger/" + id).then(function(response) {
+        getResource("evolution-trigger/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);

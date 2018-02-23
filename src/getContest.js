@@ -1,8 +1,8 @@
-var PokeApi = PokeApi || {};
+import {getResource} from './getResource';
 
-PokeApi.getContestType = function (id) {
+export function getContestType (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("contest-type/" + id).then(function(response) {
+        getResource("contest-type/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -10,9 +10,9 @@ PokeApi.getContestType = function (id) {
     })
 }
 
-PokeApi.getContestEffect = function (id) {
+export function getContestEffect (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("contest-effect/" + id).then(function(response) {
+        getResource("contest-effect/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -20,9 +20,9 @@ PokeApi.getContestEffect = function (id) {
     })
 }
 
-PokeApi.getSuperContestEffect = function (id) {
+export function getSuperContestEffect (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("super-contest-effect/" + id).then(function(response) {
+        getResource("super-contest-effect/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);

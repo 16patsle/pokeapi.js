@@ -1,8 +1,8 @@
-var PokeApi = PokeApi || {};
+import {getResource} from './getResource';
 
-PokeApi.getItem = function (id) {
+export function getItem (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("item/" + id).then(function(response) {
+        getResource("item/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -10,9 +10,9 @@ PokeApi.getItem = function (id) {
     })
 }
 
-PokeApi.getItemAttribute = function (id) {
+export function getItemAttribute (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("item-attribute/" + id).then(function(response) {
+        getResource("item-attribute/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -20,9 +20,9 @@ PokeApi.getItemAttribute = function (id) {
     })
 }
 
-PokeApi.getItemCategory = function (id) {
+export function getItemCategory (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("item-category/" + id).then(function(response) {
+        getResource("item-category/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -30,9 +30,9 @@ PokeApi.getItemCategory = function (id) {
     })
 }
 
-PokeApi.getItemFlingEffect = function (id) {
+export function getItemFlingEffect (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("item-fling-effect/" + id).then(function(response) {
+        getResource("item-fling-effect/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -40,9 +40,9 @@ PokeApi.getItemFlingEffect = function (id) {
     })
 }
 
-PokeApi.getItemPocket = function (id) {
+export function getItemPocket (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("item-pocket/" + id).then(function(response) {
+        getResource("item-pocket/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);

@@ -1,8 +1,8 @@
-var PokeApi = PokeApi || {};
+import {getResource} from './getResource';
 
-PokeApi.getBerry = function (id) {
+export function getBerry (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("berry/" + id).then(function(response) {
+        getResource("berry/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -10,9 +10,9 @@ PokeApi.getBerry = function (id) {
     })
 }
 
-PokeApi.getBerryFirmness = function (id) {
+export function getBerryFirmness (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("berry-firmness/" + id).then(function(response) {
+        getResource("berry-firmness/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -20,9 +20,9 @@ PokeApi.getBerryFirmness = function (id) {
     })
 }
 
-PokeApi.getBerryFlavor = function (id) {
+export function getBerryFlavor (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("berry-flavor/" + id).then(function(response) {
+        getResource("berry-flavor/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);

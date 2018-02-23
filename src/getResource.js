@@ -1,14 +1,15 @@
-var PokeApi = PokeApi || {};
-PokeApi.apiUrl = "https://pokeapi.co/api/";
-PokeApi.apiVersion = "v2";
+import cachedFetch from './cachedFetch';
 
-PokeApi.getResource = function (resource, options) {
+export let apiUrl = "https://pokeapi.co/api/";
+export let apiVersion = "v2";
+
+export function getResource (resource, options) {
     resource = resource.split('/')
     resource[1] = resource[1].replace('undefined','')
     resource = resource.join('/')
 
     return new Promise(function(resolve, reject) {
-        PokeApi.cachedFetch(PokeApi.apiUrl + PokeApi.apiVersion + "/" + resource, options).then(function(response) {
+        cachedFetch(apiUrl + apiVersion + "/" + resource, options).then(function(response) {
             // handle HTTP response
             if(response.ok){
                 response.json().then(function(responseJson){resolve(responseJson)});
@@ -23,8 +24,8 @@ PokeApi.getResource = function (resource, options) {
     })
 }
 
-PokeApi.getResourceFromUrl = function (url, options) {
-  if(url.indexOf(PokeApi.apiUrl) !== -1 && url.indexOf(PokeApi.apiVersion) !== -1){
-    return PokeApi.getResource(url.split('/').slice(5,7).join('/'), options)
+export function getResourceFromUrl (url, options) {
+  if(url.indexOf(apiUrl) !== -1 && url.indexOf(apiVersion) !== -1){
+    return getResource(url.split('/').slice(5,7).join('/'), options)
   }
 }

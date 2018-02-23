@@ -1,8 +1,8 @@
-var PokeApi = PokeApi || {};
+import {apiUrl, apiVersion} from './getResource';
 
 // Based on:
 // https://codepen.io/SitePoint/pen/KrYrXA?editors=0012
-PokeApi.cachedFetch = function(url, options, fetchOptions) {
+export default function cachedFetch (url, options, fetchOptions) {
   if (typeof options !== 'object') {
     options = {}
   }
@@ -15,7 +15,7 @@ PokeApi.cachedFetch = function(url, options, fetchOptions) {
   }
 
   if(options.cache){
-    if(url.indexOf(PokeApi.apiUrl) !== -1 && url.indexOf(PokeApi.apiVersion) !== -1){
+    if(url.indexOf(apiUrl) !== -1 && url.indexOf(apiVersion) !== -1){
       // Use shorthand of URL as key
       var cacheKey = 'pokeapi.js:' + url.split('/').slice(5,7).join('/')
     } else {
