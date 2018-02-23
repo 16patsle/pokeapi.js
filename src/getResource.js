@@ -23,8 +23,8 @@ PokeApi.getResource = function (resource, options) {
     })
 }
 
-PokeApi.getResourceFromUrl = function (url) {
+PokeApi.getResourceFromUrl = function (url, options) {
   if(url.indexOf(PokeApi.apiUrl) !== -1 && url.indexOf(PokeApi.apiVersion) !== -1){
-    return PokeApi.getResource(url.split('/').slice(5,7).join('/'))
+    return PokeApi.getResource(url.split('/').slice(5,7).join('/'), options)
   }
 }
