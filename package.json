@@ -1,0 +1,33 @@
+{
+  "name": "pokeapi.js",
+  "version": "1.0.0",
+  "description": "A simple JavaScript wrapper for the PokéAPI (v2), with simple built-in caching",
+  "main": "-",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "testem ci",
+    "test:dev": "testem"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/16patsle/pokeapi.js.git"
+  },
+  "keywords": [
+    "pokeAPI",
+    "wrapper",
+    "fetch",
+    "json",
+    "pokemon"
+  ],
+  "author": "16patsle",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/16patsle/pokeapi.js/issues"
+  },
+  "homepage": "https://github.com/16patsle/pokeapi.js#readme",
+  "devDependencies": {
+    "testem": "^2.0.0"
+  }
+}
