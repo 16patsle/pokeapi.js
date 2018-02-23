@@ -1,8 +1,8 @@
-var PokeApi = PokeApi || {};
+import {getResource} from './getResource';
 
-PokeApi.getLocation = function (id) {
+export function getLocation (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("location/" + id).then(function(response) {
+        getResource("location/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -10,9 +10,9 @@ PokeApi.getLocation = function (id) {
     })
 }
 
-PokeApi.getLocationArea = function (id) {
+export function getLocationArea (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("location-area/" + id).then(function(response) {
+        getResource("location-area/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -20,9 +20,9 @@ PokeApi.getLocationArea = function (id) {
     })
 }
 
-PokeApi.getPalParkArea = function (id) {
+export function getPalParkArea (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("pal-park-area/" + id).then(function(response) {
+        getResource("pal-park-area/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -30,9 +30,9 @@ PokeApi.getPalParkArea = function (id) {
     })
 }
 
-PokeApi.getRegion = function (id) {
+export function getRegion (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("region/" + id).then(function(response) {
+        getResource("region/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);

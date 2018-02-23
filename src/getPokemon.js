@@ -1,8 +1,8 @@
-var PokeApi = PokeApi || {};
+import {getResource} from './getResource';
 
-PokeApi.getAbility = function (id) {
+export function getAbility (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("ability/" + id).then(function(response) {
+        getResource("ability/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -10,9 +10,9 @@ PokeApi.getAbility = function (id) {
     })
 }
 
-PokeApi.getCharacteristic = function (id) {
+export function getCharacteristic (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("characteristic/" + id).then(function(response) {
+        getResource("characteristic/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -20,9 +20,9 @@ PokeApi.getCharacteristic = function (id) {
     })
 }
 
-PokeApi.getEggGroup = function (id) {
+export function getEggGroup (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("egg-group/" + id).then(function(response) {
+        getResource("egg-group/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -30,9 +30,9 @@ PokeApi.getEggGroup = function (id) {
     })
 }
 
-PokeApi.getGender = function (id) {
+export function getGender (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("gender/" + id).then(function(response) {
+        getResource("gender/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -40,9 +40,9 @@ PokeApi.getGender = function (id) {
     })
 }
 
-PokeApi.getGrowthRate = function (id) {
+export function getGrowthRate (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("growth-rate/" + id).then(function(response) {
+        getResource("growth-rate/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -50,9 +50,9 @@ PokeApi.getGrowthRate = function (id) {
     })
 }
 
-PokeApi.getNature = function (id) {
+export function getNature (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("nature/" + id).then(function(response) {
+        getResource("nature/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -60,9 +60,9 @@ PokeApi.getNature = function (id) {
     })
 }
 
-PokeApi.getPokeathlonStat = function (id) {
+export function getPokeathlonStat (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("pokeathlon-stat/" + id).then(function(response) {
+        getResource("pokeathlon-stat/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -70,9 +70,9 @@ PokeApi.getPokeathlonStat = function (id) {
     })
 }
 
-PokeApi.getPokemon = function (id) {
+export function getPokemon (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("pokemon/" + id).then(function(response) {
+        getResource("pokemon/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -80,9 +80,9 @@ PokeApi.getPokemon = function (id) {
     })
 }
 
-PokeApi.getPokemonColor = function (id) {
+export function getPokemonColor (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("pokemon-color/" + id).then(function(response) {
+        getResource("pokemon-color/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -90,9 +90,9 @@ PokeApi.getPokemonColor = function (id) {
     })
 }
 
-PokeApi.getPokemonForm = function (id) {
+export function getPokemonForm (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("pokemon-form/" + id).then(function(response) {
+        getResource("pokemon-form/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -100,9 +100,9 @@ PokeApi.getPokemonForm = function (id) {
     })
 }
 
-PokeApi.getPokemonHabitat = function (id) {
+export function getPokemonHabitat (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("pokemon-habitat/" + id).then(function(response) {
+        getResource("pokemon-habitat/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -110,9 +110,9 @@ PokeApi.getPokemonHabitat = function (id) {
     })
 }
 
-PokeApi.getPokemonShape = function (id) {
+export function getPokemonShape (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("pokemon-shape/" + id).then(function(response) {
+        getResource("pokemon-shape/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -120,9 +120,9 @@ PokeApi.getPokemonShape = function (id) {
     })
 }
 
-PokeApi.getPokemonSpecies = function (id) {
+export function getPokemonSpecies (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("pokemon-species/" + id).then(function(response) {
+        getResource("pokemon-species/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -130,9 +130,9 @@ PokeApi.getPokemonSpecies = function (id) {
     })
 }
 
-PokeApi.getStat = function (id) {
+export function getStat (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("stat/" + id).then(function(response) {
+        getResource("stat/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -140,9 +140,9 @@ PokeApi.getStat = function (id) {
     })
 }
 
-PokeApi.getType = function (id) {
+export function getType (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("type/" + id).then(function(response) {
+        getResource("type/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);

@@ -1,7 +1,7 @@
 {
   "framework": "jasmine",
   "src_files": [
-    "src/*.js",
+    "dist/bundle.js",
     "tests/*_tests.js"
   ],
   "phantomjs_debug_port": "7358",

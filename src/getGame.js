@@ -1,8 +1,8 @@
-var PokeApi = PokeApi || {};
+import {getResource} from './getResource';
 
-PokeApi.getGeneration = function (id) {
+export function getGeneration (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("generation/" + id).then(function(response) {
+        getResource("generation/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -10,9 +10,9 @@ PokeApi.getGeneration = function (id) {
     })
 }
 
-PokeApi.getPokedex = function (id) {
+export function getPokedex (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("pokedex/" + id).then(function(response) {
+        getResource("pokedex/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -20,9 +20,9 @@ PokeApi.getPokedex = function (id) {
     })
 }
 
-PokeApi.getVersion = function (id) {
+export function getVersion (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("version/" + id).then(function(response) {
+        getResource("version/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
@@ -30,9 +30,9 @@ PokeApi.getVersion = function (id) {
     })
 }
 
-PokeApi.getVersionGroup = function (id) {
+export function getVersionGroup (id) {
     return new Promise(function(resolve, reject) {
-        PokeApi.getResource("version-group/" + id).then(function(response) {
+        getResource("version-group/" + id).then(function(response) {
             resolve(response);
         }).catch(function(error){
             reject(error);
