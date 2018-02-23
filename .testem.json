@@ -8,10 +8,7 @@
   "launch_in_ci": ["Chrome", "Firefox"],
   "browser_args": {
     "Chrome": {
-      "ci": ["--headless", "--disable-gpu", "--remote-debugging-port=9222"]
-    },
-    "Chromium": {
-      "ci": ["--headless", "--disable-gpu", "--remote-debugging-port=9222"]
+      "ci": ["--headless", "--disable-gpu", "--remote-debugging-port=9222", "--no-sandbox"]
     },
     "Firefox": {
       "ci": ["-headless"]
