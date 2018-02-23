@@ -1,8 +1,20 @@
 {
-    "framework": "jasmine",
-    "src_files": [
-        "src/*.js",
-        "tests/*_tests.js"
-    ],
-    "phantomjs_debug_port": "7358"
+  "framework": "jasmine",
+  "src_files": [
+    "src/*.js",
+    "tests/*_tests.js"
+  ],
+  "phantomjs_debug_port": "7358",
+  "launch_in_ci": ["Chrome", "Chromium", "Firefox", "Safari"],
+  "browser_args": {
+    "Chrome": {
+      "ci": ["--headless", "--disable-gpu", "--remote-debugging-port=9222"]
+    },
+    "Chromium": {
+      "ci": ["--headless", "--disable-gpu", "--remote-debugging-port=9222"]
+    },
+    "Firefox": {
+      "ci": ["-headless"]
+    }
+  }
 }
