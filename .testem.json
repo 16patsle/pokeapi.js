@@ -5,7 +5,7 @@
     "tests/*_tests.js"
   ],
   "phantomjs_debug_port": "7358",
-  "launch_in_ci": ["Chrome", "Chromium", "Firefox", "Safari"],
+  "launch_in_ci": ["Chrome", "Firefox"],
   "browser_args": {
     "Chrome": {
       "ci": ["--headless", "--disable-gpu", "--remote-debugging-port=9222"]
