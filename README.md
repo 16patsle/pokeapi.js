@@ -11,13 +11,13 @@ pokeapi.js v1.1 is available both in UMD and ES module format.
 If you are using ES modules in your project (through Webpack or Rollup for example), the ES module version (`dist/pokeapi.esm.js`) should be chosen automatically by your module bundler. Just install it from npm:
 
 ```
-npm install pokeapi.js
+npm install @16patsle/pokeapi.js
 ```
 
 Then you just import it normally:
 
 ```javascript
-import PokeApi from 'pokeapi.js';
+import PokeApi from '@16patsle/pokeapi.js';
 ```
 
 ### With a script tag (browser global)
@@ -33,7 +33,7 @@ If you place `pokeapi.js.map` in the same folder, you will get a better debug ex
 Just import the library like you would normally. For example for Commonjs:
 
 ```javascript
-const PokeApi = require('pokeapi.js')
+const PokeApi = require('@16patsle/pokeapi.js')
 ```
 
 ## Usage

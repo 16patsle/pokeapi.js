@@ -1,5 +1,5 @@
 {
-  "name": "pokeapi.js",
+  "name": "@16patsle/pokeapi.js",
   "version": "1.1.0",
   "description": "A simple JavaScript wrapper for the PokéAPI (v2), with simple built-in caching",
   "main": "dist/bundle.js",
