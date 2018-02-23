@@ -1,7 +1,7 @@
 {
   "name": "pokeapi.js",
-  "version": "0.1.0",
-  "description": "A simple JavaScript wrapper for the PokéAPI (v2)",
+  "version": "1.0.0",
+  "description": "A simple JavaScript wrapper for the PokéAPI (v2), with simple built-in caching",
   "main": "-",
   "directories": {
     "test": "tests"
