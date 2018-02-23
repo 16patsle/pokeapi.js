@@ -4,7 +4,7 @@ import minify from 'rollup-plugin-babel-minify';
 export default {
   input: 'src/index.js',
   output: {
-    file: 'dist/bundle.js',
+    file: 'dist/pokeapi.js',
     format: 'umd',
     name: 'PokeApi',
     sourcemap: true,
