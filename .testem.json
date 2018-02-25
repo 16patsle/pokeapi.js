@@ -1,7 +1,7 @@
 {
   "framework": "jasmine",
   "src_files": [
-    "dist/bundle.js",
+    "dist/pokeapi.js",
     "tests/*_tests.js"
   ],
   "phantomjs_debug_port": "7358",
