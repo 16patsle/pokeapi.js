@@ -15,7 +15,7 @@ export default function cachedFetch (url, options, fetchOptions) {
   }
 
   const newUrl = new URL(url)
-  if (newUrl.pathname.substr(-1) != '/') newUrl.pathName += '/';
+  if (newUrl.pathname.substr(-1) != '/') newUrl.pathname += '/';
   url = newUrl.toString()
 
   if(options.cache){

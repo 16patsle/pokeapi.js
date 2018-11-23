@@ -1,6 +1,6 @@
 var _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(a){return typeof a}:function(a){return a&&"function"==typeof Symbol&&a.constructor===Symbol&&a!==Symbol.prototype?"symbol":typeof a};// Based on:
 // https://codepen.io/SitePoint/pen/KrYrXA?editors=0012
-function cachedFetch(a,b,c){"object"!==("undefined"==typeof b?"undefined":_typeof(b))&&(b={}),"number"!=typeof b.expiry&&(b.expiry=86400),void 0===b.cache&&(b.cache=!0);var d=new URL(a);if("/"!=d.pathname.substr(-1)&&(d.pathName+="/"),a=d.toString(),b.cache){if(-1!==a.indexOf(apiUrl)&&-1!==a.indexOf(apiVersion))// Use shorthand of URL as key
+function cachedFetch(a,b,c){"object"!==("undefined"==typeof b?"undefined":_typeof(b))&&(b={}),"number"!=typeof b.expiry&&(b.expiry=86400),void 0===b.cache&&(b.cache=!0);var d=new URL(a);if("/"!=d.pathname.substr(-1)&&(d.pathname+="/"),a=d.toString(),b.cache){if(-1!==a.indexOf(apiUrl)&&-1!==a.indexOf(apiVersion))// Use shorthand of URL as key
 var e="pokeapi.js:"+a.split("/").slice(5,7).join("/");else// Use the URL as the cache key to sessionStorage
 var e="pokeapi.js:"+a;var f=localStorage.getItem(e),g=localStorage.getItem(e+":ts");if(null!==f&&null!==g){// it was in sessionStorage! Yay!
 // Even though 'whenCached' is a string, this operation

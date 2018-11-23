@@ -1,6 +1,6 @@
 (function(a,b){'object'==typeof exports&&'undefined'!=typeof module?module.exports=b():'function'==typeof define&&define.amd?define(b):a.PokeApi=b()})(this,function(){'use strict';// Based on:
 // https://codepen.io/SitePoint/pen/KrYrXA?editors=0012
-function a(a,b,f){'object'!==('undefined'==typeof b?'undefined':c(b))&&(b={}),'number'!=typeof b.expiry&&(b.expiry=86400),void 0===b.cache&&(b.cache=!0);var g=new URL(a);if('/'!=g.pathname.substr(-1)&&(g.pathName+='/'),a=g.toString(),b.cache){if(-1!==a.indexOf(d)&&-1!==a.indexOf(e))// Use shorthand of URL as key
+function a(a,b,f){'object'!==('undefined'==typeof b?'undefined':c(b))&&(b={}),'number'!=typeof b.expiry&&(b.expiry=86400),void 0===b.cache&&(b.cache=!0);var g=new URL(a);if('/'!=g.pathname.substr(-1)&&(g.pathname+='/'),a=g.toString(),b.cache){if(-1!==a.indexOf(d)&&-1!==a.indexOf(e))// Use shorthand of URL as key
 var h='pokeapi.js:'+a.split('/').slice(5,7).join('/');else// Use the URL as the cache key to sessionStorage
 var h='pokeapi.js:'+a;var i=localStorage.getItem(h),j=localStorage.getItem(h+':ts');if(null!==i&&null!==j){// it was in sessionStorage! Yay!
 // Even though 'whenCached' is a string, this operation
