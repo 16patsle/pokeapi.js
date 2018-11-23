@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.1.2] - 2018-11-23
+### Fixed
+- Fixed redirecting issue causing requests to fail
+
 ## [1.1.1] - 2018-02-23
 ### Changed
 - Updated README.md to reflect new package name
@@ -23,6 +27,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Initial version of library
 
 [Unreleased]: https://github.com/16patsle/pokeapi.js/tree/develop
+[1.1.2]: https://github.com/16patsle/pokeapi.js/tree/v1.1.2
 [1.1.1]: https://github.com/16patsle/pokeapi.js/tree/v1.1.1
 [1.1.0]: https://github.com/16patsle/pokeapi.js/tree/v1.1.0
 [1.0.0]: https://github.com/16patsle/pokeapi.js/tree/v1.0

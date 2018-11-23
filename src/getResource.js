@@ -19,7 +19,7 @@ export function getResource (resource, options) {
 
         }, function(error) {
             // handle network error
-            reject(error.message);
+            reject(error);
         })
     })
 }

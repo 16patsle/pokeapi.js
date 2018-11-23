@@ -14,6 +14,10 @@ export default function cachedFetch (url, options, fetchOptions) {
     options.cache = true
   }
 
+  const newUrl = new URL(url)
+  if (newUrl.pathname.substr(-1) != '/') newUrl.pathName += '/';
+  url = newUrl.toString()
+
   if(options.cache){
     if(url.indexOf(apiUrl) !== -1 && url.indexOf(apiVersion) !== -1){
       // Use shorthand of URL as key
