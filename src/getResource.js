@@ -3,25 +3,23 @@ import cachedFetch from './cachedFetch';
 export let apiUrl = "https://pokeapi.co/api/";
 export let apiVersion = "v2";
 
-export function getResource (resource, options) {
+export async function getResource (resource, options) {
     resource = resource.split('/')
     resource[1] = resource[1].replace('undefined','')
     resource = resource.join('/')
 
-    return new Promise(function(resolve, reject) {
-        cachedFetch(apiUrl + apiVersion + "/" + resource, options).then(function(response) {
-            // handle HTTP response
-            if(response.ok){
-                response.json().then(function(responseJson){resolve(responseJson)});
-            } else{
-                reject(response.status + " " + response.statusText)
-            }
-
-        }, function(error) {
-            // handle network error
-            reject(error);
-        })
-    })
+    try {
+        const response = await cachedFetch(apiUrl + apiVersion + "/" + resource, options)
+        // handle HTTP response
+        if(response.ok){
+            return await response.json()
+        } else{
+            throw response.status + " " + response.statusText
+        }
+    } catch(error) {
+        // handle network error
+        throw error
+    }
 }
 
 export function getResourceFromUrl (url, options) {
