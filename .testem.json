@@ -1,14 +1,16 @@
 {
   "framework": "jasmine",
-  "src_files": [
-    "dist/pokeapi.js",
-    "tests/*_tests.js"
-  ],
+  "src_files": ["dist/pokeapi.js", "tests/*_tests.js"],
   "phantomjs_debug_port": "7358",
   "launch_in_ci": ["Chrome", "Firefox"],
   "browser_args": {
     "Chrome": {
-      "ci": ["--headless", "--disable-gpu", "--remote-debugging-port=9222", "--no-sandbox"]
+      "ci": [
+        "--headless",
+        "--disable-gpu",
+        "--remote-debugging-port=9222",
+        "--no-sandbox"
+      ]
     },
     "Firefox": {
       "ci": ["-headless"]

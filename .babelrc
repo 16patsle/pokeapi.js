@@ -1,11 +1,14 @@
 {
   "presets": [
-    ["@babel/preset-env", {
-      "useBuiltIns": "usage",
-      "bugfixes": true,
-      "shippedProposals": true,
-      "corejs": "3.23",
-      "targets": "defaults"
-    }]
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "bugfixes": true,
+        "shippedProposals": true,
+        "corejs": "3.23",
+        "targets": "defaults"
+      }
+    ]
   ]
 }
