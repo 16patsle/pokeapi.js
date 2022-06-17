@@ -11,6 +11,7 @@
     "pretest": "npm run build",
     "test": "testem ci",
     "test:dev": "testem",
+    "lint": "npx prettier --write .",
     "build": "rollup -c && rollup -c -f es -o dist/pokeapi.esm.js"
   },
   "repository": {
@@ -35,6 +36,7 @@
     "@babel/preset-env": "^7.18.2",
     "@rollup/plugin-babel": "^5.3.1",
     "core-js": "^3.23.1",
+    "prettier": "2.7.1",
     "rollup": "^2.75.6",
     "rollup-plugin-terser": "^7.0.2",
     "testem": "^3.8.0"
