@@ -26,7 +26,7 @@ describe('getLocationArea()', function () {
       flag = false;
 
       PokeApi.getLocationArea(19).then(function (response) {
-        if (response.name === 'mt-coronet-7f') {
+        if (response.name === 'mt-coronet-6f') {
           flag = true;
         }
       });
