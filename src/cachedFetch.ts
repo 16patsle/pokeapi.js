@@ -1,8 +1,13 @@
 import { apiUrl, apiVersion } from './getResource';
 
+export type CachedFetchOptions = {
+  expiry?: number;
+  cache?: boolean
+}
+
 // Based on:
 // https://codepen.io/SitePoint/pen/KrYrXA?editors=0012
-export default async function cachedFetch(url, options = {}, fetchOptions) {
+export default async function cachedFetch(url: string, options: CachedFetchOptions = {}, fetchOptions?: RequestInit) {
   if (typeof options.expiry !== 'number') {
     // I hope you didn't set it to 0 seconds
     options.expiry = 24 * 60 * 60; // 24h default
@@ -22,18 +27,15 @@ export default async function cachedFetch(url, options = {}, fetchOptions) {
       // Use shorthand of URL as key
       cacheKey = 'pokeapi.js:' + url.split('/').slice(5, 7).join('/');
     } else {
-      // Use the URL as the cache key to sessionStorage
+      // Use the URL as the cache key to localStorage
       cacheKey = 'pokeapi.js:' + url;
     }
 
     const cached = localStorage.getItem(cacheKey);
     const whenCached = localStorage.getItem(cacheKey + ':ts');
     if (cached !== null && whenCached !== null) {
-      // it was in sessionStorage! Yay!
-      // Even though 'whenCached' is a string, this operation
-      // works because the minus sign tries to convert the
-      // string to an integer and it will work.
-      const age = (Date.now() - whenCached) / 1000;
+      // it was in localStorage! Yay!
+      const age = (Date.now() - Number(whenCached)) / 1000;
       if (age < options.expiry) {
         const response = new Response(new Blob([cached]));
         return Promise.resolve(response);
@@ -59,7 +61,7 @@ export default async function cachedFetch(url, options = {}, fetchOptions) {
       // way we're being un-intrusive.
       const content = await response.clone().text();
       localStorage.setItem(cacheKey, content);
-      localStorage.setItem(cacheKey + ':ts', Date.now());
+      localStorage.setItem(cacheKey + ':ts', String(Date.now()));
     }
   }
   return response;
