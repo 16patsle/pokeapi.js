@@ -21,7 +21,7 @@ export default async function cachedFetch(
   }
 
   const newUrl = new URL(url);
-  if (newUrl.pathname.substring(-1) != '/') newUrl.pathname += '/';
+  if (newUrl.pathname.slice(-1) != '/') newUrl.pathname += '/';
   url = newUrl.toString();
 
   let cacheKey = '';
