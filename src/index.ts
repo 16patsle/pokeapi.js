@@ -10,3 +10,4 @@ export * from './getMachine';
 export * from './getMove';
 export * from './getPokemon';
 export * from './getResource';
+export * from './types';
