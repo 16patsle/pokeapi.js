@@ -1,6 +1,7 @@
 import { getResource } from './getResource';
+import type { Item } from './types/Item';
 
-export function getItem(id: number | string) {
+export function getItem(id: number | string): Promise<Item> {
   return getResource('item/' + id);
 }
 
