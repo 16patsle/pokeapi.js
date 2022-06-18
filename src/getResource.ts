@@ -8,20 +8,15 @@ export async function getResource(resource: string, options: CachedFetchOptions)
   resourceSplit[1] = resourceSplit[1].replace('undefined', '');
   resource = resourceSplit.join('/');
 
-  try {
-    const response = await cachedFetch(
-      apiUrl + apiVersion + '/' + resource,
-      options
-    );
-    // handle HTTP response
-    if (response.ok) {
-      return await response.json();
-    } else {
-      throw response.status + ' ' + response.statusText;
-    }
-  } catch (error) {
-    // handle network error
-    throw error;
+  const response = await cachedFetch(
+    apiUrl + apiVersion + '/' + resource,
+    options
+  );
+  // handle HTTP response
+  if (response.ok) {
+    return await response.json();
+  } else {
+    throw response.status + ' ' + response.statusText;
   }
 }
 
