@@ -1,4 +1,5 @@
 import { apiUrl, apiVersion } from './getResource';
+import * as idbStorage from './idbStorage';
 
 export type CachedFetchOptions = {
   expiry?: number;
@@ -31,24 +32,27 @@ export default async function cachedFetch(
       // Use shorthand of URL as key
       cacheKey = 'pokeapi.js:' + url.split('/').slice(5, 7).join('/');
     } else {
-      // Use the URL as the cache key to localStorage
+      // Use the URL as the cache key in the DB
       cacheKey = 'pokeapi.js:' + url;
     }
 
-    const cached = localStorage.getItem(cacheKey);
-    const whenCached = localStorage.getItem(cacheKey + ':ts');
+    const db = await idbStorage.getDB();
+    const cachedObject = await idbStorage.get(db, cacheKey);
+    const cached = cachedObject?.data ?? null;
+    const whenCached = cachedObject?.whenCached ?? null;
     if (cached !== null && whenCached !== null) {
-      // it was in localStorage! Yay!
+      // it was in the DB! Yay!
       const age = (Date.now() - Number(whenCached)) / 1000;
       if (age < options.expiry) {
         const response = new Response(new Blob([cached]));
-        return Promise.resolve(response);
+        db.close();
+        return response;
       } else {
         // We need to clean up this old key
-        localStorage.removeItem(cacheKey);
-        localStorage.removeItem(cacheKey + ':ts');
+        await idbStorage.deleteKey(db, cacheKey);
       }
     }
+    db.close();
   }
 
   const response = await fetch(url, fetchOptions);
@@ -58,14 +62,15 @@ export default async function cachedFetch(
     const ct = response.headers.get('Content-Type');
     if (ct && (ct.match(/application\/json/i) || ct.match(/text\//i))) {
       // There is a .json() instead of .text() but
-      // we're going to store it in sessionStorage as
+      // we're going to store it in the DB as
       // string anyway.
       // If we don't clone the response, it will be
       // consumed by the time it's returned. This
       // way we're being un-intrusive.
       const content = await response.clone().text();
-      localStorage.setItem(cacheKey, content);
-      localStorage.setItem(cacheKey + ':ts', String(Date.now()));
+      const db = await idbStorage.getDB();
+      idbStorage.put(db, cacheKey, content)
+      db.close();
     }
   }
   return response;
