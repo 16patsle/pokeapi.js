@@ -2,12 +2,16 @@ import { apiUrl, apiVersion } from './getResource';
 
 export type CachedFetchOptions = {
   expiry?: number;
-  cache?: boolean
-}
+  cache?: boolean;
+};
 
 // Based on:
 // https://codepen.io/SitePoint/pen/KrYrXA?editors=0012
-export default async function cachedFetch(url: string, options: CachedFetchOptions = {}, fetchOptions?: RequestInit) {
+export default async function cachedFetch(
+  url: string,
+  options: CachedFetchOptions = {},
+  fetchOptions?: RequestInit
+) {
   if (typeof options.expiry !== 'number') {
     // I hope you didn't set it to 0 seconds
     options.expiry = 24 * 60 * 60; // 24h default
