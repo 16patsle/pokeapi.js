@@ -1,18 +1,16 @@
 import cachedFetch, { type CachedFetchOptions } from './cachedFetch';
 
-export let apiUrl = 'https://pokeapi.co/api/';
-export let apiVersion = 'v2';
+export const apiUrl = 'https://pokeapi.co/api/';
+export const apiVersion = 'v2';
 
 export async function getResource(
   resource: string,
   options?: CachedFetchOptions
 ) {
-  let resourceSplit = resource.split('/');
-  resourceSplit[1] = resourceSplit[1].replace('undefined', '');
-  resource = resourceSplit.join('/');
+  resource = resource.replace('undefined', '');
 
   const response = await cachedFetch(
-    apiUrl + apiVersion + '/' + resource,
+    `${apiUrl}${apiVersion}/${resource}`,
     options
   );
   // handle HTTP response
