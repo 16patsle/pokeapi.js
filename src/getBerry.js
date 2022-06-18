@@ -1,37 +1,13 @@
 import { getResource } from './getResource';
 
 export function getBerry(id) {
-  return new Promise(function (resolve, reject) {
-    getResource('berry/' + id)
-      .then(function (response) {
-        resolve(response);
-      })
-      .catch(function (error) {
-        reject(error);
-      });
-  });
+  return getResource('berry/' + id);
 }
 
 export function getBerryFirmness(id) {
-  return new Promise(function (resolve, reject) {
-    getResource('berry-firmness/' + id)
-      .then(function (response) {
-        resolve(response);
-      })
-      .catch(function (error) {
-        reject(error);
-      });
-  });
+  return getResource('berry-firmness/' + id);
 }
 
 export function getBerryFlavor(id) {
-  return new Promise(function (resolve, reject) {
-    getResource('berry-flavor/' + id)
-      .then(function (response) {
-        resolve(response);
-      })
-      .catch(function (error) {
-        reject(error);
-      });
-  });
+  return getResource('berry-flavor/' + id);
 }
