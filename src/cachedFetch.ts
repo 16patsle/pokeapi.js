@@ -30,10 +30,10 @@ export default async function cachedFetch(
   if (options.cache) {
     if (url.indexOf(apiUrl) !== -1 && url.indexOf(apiVersion) !== -1) {
       // Use shorthand of URL as key
-      cacheKey = 'pokeapi.js:' + url.split('/').slice(5, 7).join('/');
+      cacheKey = url.split('/').slice(5, 7).join('/');
     } else {
       // Use the URL as the cache key in the DB
-      cacheKey = 'pokeapi.js:' + url;
+      cacheKey = url;
     }
 
     const db = await idbStorage.getDB();
