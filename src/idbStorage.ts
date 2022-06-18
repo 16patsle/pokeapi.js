@@ -1,7 +1,21 @@
-import { openDB, type IDBPDatabase } from 'idb';
+import { openDB, type IDBPDatabase, type DBSchema } from 'idb';
+
+interface CacheDBSchema extends DBSchema {
+  cachedResources: {
+    key: string;
+    value: {
+      cacheKey: string;
+      whenCached: number;
+      data: string;
+    };
+    indexes: {
+      whenCached: number
+    }
+  };
+}
 
 export async function getDB() {
-  const db = await openDB('pokeapi.js', 1, {
+  const db = await openDB<CacheDBSchema>('pokeapi.js', 1, {
     async upgrade(db) {
       const objectStore = db.createObjectStore('cachedResources', {
         keyPath: 'cacheKey',
@@ -17,13 +31,13 @@ export async function getDB() {
   return db;
 }
 
-export async function get(db: IDBPDatabase, cacheKey: string) {
+export async function get(db: IDBPDatabase<CacheDBSchema>, cacheKey: string) {
   const tx = db.transaction('cachedResources', 'readonly');
   const store = tx.store;
   return store.get(cacheKey);
 }
 
-export async function put(db: IDBPDatabase, cacheKey: string, data: any) {
+export async function put(db: IDBPDatabase<CacheDBSchema>, cacheKey: string, data: string) {
   const tx = db.transaction('cachedResources', 'readwrite');
   const store = tx.store;
   const whenCached = Date.now();
@@ -34,7 +48,7 @@ export async function put(db: IDBPDatabase, cacheKey: string, data: any) {
   })
 }
 
-export async function deleteKey(db: IDBPDatabase, cacheKey: string) {
+export async function deleteKey(db: IDBPDatabase<CacheDBSchema>, cacheKey: string) {
   const tx = db.transaction('cachedResources', 'readwrite');
   const store = tx.store;
   return store.delete(cacheKey);
