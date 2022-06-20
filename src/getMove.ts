@@ -1,85 +1,29 @@
 import { getResource } from './getResource';
 
 export function getMove(id: number | string) {
-  return new Promise(function (resolve, reject) {
-    getResource('move/' + id)
-      .then(function (response) {
-        resolve(response);
-      })
-      .catch(function (error) {
-        reject(error);
-      });
-  });
+  return getResource('move/' + id)
 }
 
 export function getMoveAilment(id: number | string) {
-  return new Promise(function (resolve, reject) {
-    getResource('move-ailment/' + id)
-      .then(function (response) {
-        resolve(response);
-      })
-      .catch(function (error) {
-        reject(error);
-      });
-  });
+  return getResource('move-ailment/' + id)
 }
 
 export function getMoveBattleStyle(id: number | string) {
-  return new Promise(function (resolve, reject) {
-    getResource('move-battle-style/' + id)
-      .then(function (response) {
-        resolve(response);
-      })
-      .catch(function (error) {
-        reject(error);
-      });
-  });
+  return getResource('move-battle-style/' + id)
 }
 
 export function getMoveCategory(id: number | string) {
-  return new Promise(function (resolve, reject) {
-    getResource('move-category/' + id)
-      .then(function (response) {
-        resolve(response);
-      })
-      .catch(function (error) {
-        reject(error);
-      });
-  });
+  return getResource('move-category/' + id)
 }
 
 export function getMoveDamageClass(id: number | string) {
-  return new Promise(function (resolve, reject) {
-    getResource('move-damage-class/' + id)
-      .then(function (response) {
-        resolve(response);
-      })
-      .catch(function (error) {
-        reject(error);
-      });
-  });
+  return getResource('move-damage-class/' + id)
 }
 
 export function getMoveLearnMethod(id: number | string) {
-  return new Promise(function (resolve, reject) {
-    getResource('move-learn-method/' + id)
-      .then(function (response) {
-        resolve(response);
-      })
-      .catch(function (error) {
-        reject(error);
-      });
-  });
+  return getResource('move-learn-method/' + id)
 }
 
 export function getMoveTarget(id: number | string) {
-  return new Promise(function (resolve, reject) {
-    getResource('move-target/' + id)
-      .then(function (response) {
-        resolve(response);
-      })
-      .catch(function (error) {
-        reject(error);
-      });
-  });
+  return getResource('move-target/' + id)
 }
