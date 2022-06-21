@@ -13,7 +13,7 @@
     "test": "testem ci",
     "test:dev": "testem",
     "lint": "npx prettier --write .",
-    "build": "rollup -c && rollup -c -f es -o dist/pokeapi.esm.js"
+    "build": "rollup -c && rollup -c -f es -o dist/pokeapi.esm.js && tsc"
   },
   "repository": {
     "type": "git",
