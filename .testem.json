@@ -2,7 +2,7 @@
   "framework": "jasmine",
   "src_files": ["dist/pokeapi.js", "tests/*_tests.js"],
   "phantomjs_debug_port": "7358",
-  "launch_in_ci": ["Chrome", "Firefox"],
+  "launch_in_ci": ["Firefox"],
   "browser_args": {
     "Chrome": {
       "ci": [
