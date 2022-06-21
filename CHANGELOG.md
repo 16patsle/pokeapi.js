@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- BREAKING: THe library now only has named exports, so you can import each separate part. To mimic the previous usage, try importing all from the package with `import * as PokeApi from '@16patsle/pokeapi.js';` Usage with a script tag and the global Pokeapi variable should be identical to before.
+- BREAKING: The library now only has named exports, so you can import each separate part. To mimic the previous usage, try importing all from the package with `import * as PokeApi from '@16patsle/pokeapi.js';` Usage with a script tag and the global Pokeapi variable should be identical to before.
 - By default, the library now only attempts to support recent versions of modern browsers. If you need support for older browsers you can transpile the library using a tool like Babel.
 - Converted code to TypeScript for type safety and autocomplete support. Some popular endpoints also have proper types for the return values (this is a work in process), which enables type-safe usage of API data.
 - Implemented caching in IndexedDB instead of localStorage. This avoids issues where localStorage is full, as IndexedDB has a higher storage quota.
