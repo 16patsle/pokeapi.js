@@ -1,1 +1,6 @@
 tests/
+.babelrc
+.prettierignore
+.prettierrc.json
+.testem.json
+.travis.yml
