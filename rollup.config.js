@@ -12,6 +12,7 @@ export default {
     name: 'PokeApi',
     sourcemap: true,
     generatedCode: 'es2015',
+    manualChunks: () => 'pokeapi.js',
   },
   plugins: [
     commonjs(),
