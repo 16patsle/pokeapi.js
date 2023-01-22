@@ -1,8 +1,17 @@
 import { apiUrl, apiVersion } from './getResource';
+import type { CacheImplementation } from './cache/CacheImplementation';
 
 export type CachedFetchOptions = {
   expiry?: number;
-  cache?: boolean;
+  cache?: boolean | 'idb' | 'memory';
+};
+
+const getCacheImplementation = async (
+  cache: true | 'idb' | 'memory'
+): Promise<CacheImplementation> => {
+  return cache !== 'memory'
+    ? ((await import('./cache/idbStorage')) as unknown as CacheImplementation)
+    : await import('./cache/memoryStorage');
 };
 
 // Based on:
@@ -19,7 +28,7 @@ export default async function cachedFetch(
   if (options.cache === undefined) {
     options.cache = true;
   }
-  if (!('indexedDB' in globalThis)) {
+  if (!('indexedDB' in globalThis) && options.cache !== false) {
     options.cache = false;
   }
 
@@ -38,9 +47,9 @@ export default async function cachedFetch(
       cacheKey = url;
     }
 
-    const idbStorage = await import('./idbStorage');
-    const db = await idbStorage.getDB();
-    const cachedObject = await idbStorage.get(db, cacheKey);
+    const cacheStorage = await getCacheImplementation(options.cache);
+    const db = await cacheStorage.getDB();
+    const cachedObject = await cacheStorage.get(db, cacheKey);
     const cached = cachedObject?.data ?? null;
     const whenCached = cachedObject?.whenCached ?? null;
     if (cached !== null && whenCached !== null) {
@@ -52,7 +61,7 @@ export default async function cachedFetch(
         return response;
       } else {
         // We need to clean up this old key
-        await idbStorage.deleteKey(db, cacheKey);
+        await cacheStorage.deleteKey(db, cacheKey);
       }
     }
     db.close();
@@ -75,9 +84,9 @@ export default async function cachedFetch(
       // consumed by the time it's returned. This
       // way we're being un-intrusive.
       const content = await response.clone().text();
-      const idbStorage = await import('./idbStorage');
-      const db = await idbStorage.getDB();
-      idbStorage.put(db, cacheKey, content);
+      const cacheStorage = await getCacheImplementation(options.cache);
+      const db = await cacheStorage.getDB();
+      cacheStorage.put(db, cacheKey, content);
       db.close();
     }
   }
