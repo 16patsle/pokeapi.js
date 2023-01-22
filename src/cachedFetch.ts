@@ -1,5 +1,4 @@
 import { apiUrl, apiVersion } from './getResource';
-import * as idbStorage from './idbStorage';
 
 export type CachedFetchOptions = {
   expiry?: number;
@@ -20,6 +19,9 @@ export default async function cachedFetch(
   if (options.cache === undefined) {
     options.cache = true;
   }
+  if (!('indexedDB' in globalThis)) {
+    options.cache = false;
+  }
 
   const newUrl = new URL(url);
   if (newUrl.pathname.slice(-1) != '/') newUrl.pathname += '/';
@@ -36,6 +38,7 @@ export default async function cachedFetch(
       cacheKey = url;
     }
 
+    const idbStorage = await import('./idbStorage');
     const db = await idbStorage.getDB();
     const cachedObject = await idbStorage.get(db, cacheKey);
     const cached = cachedObject?.data ?? null;
@@ -60,7 +63,11 @@ export default async function cachedFetch(
   // JSON or something non-binary
   if (response.status === 200) {
     const ct = response.headers.get('Content-Type');
-    if (ct && (ct.match(/application\/json/i) || ct.match(/text\//i))) {
+    if (
+      options.cache &&
+      ct &&
+      (ct.match(/application\/json/i) || ct.match(/text\//i))
+    ) {
       // There is a .json() instead of .text() but
       // we're going to store it in the DB as
       // string anyway.
@@ -68,6 +75,7 @@ export default async function cachedFetch(
       // consumed by the time it's returned. This
       // way we're being un-intrusive.
       const content = await response.clone().text();
+      const idbStorage = await import('./idbStorage');
       const db = await idbStorage.getDB();
       idbStorage.put(db, cacheKey, content);
       db.close();
