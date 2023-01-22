@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.1.0] - 2023-01-22
+
+### Changed
+
+- More detailed TypeScript definitions for returned data
+- Experimental in-memory caching supported in cachedFetch function (off by default)
+
+### Fixed
+
+- Automatically disables caching when IndexedDB is unsupported
+
 ## [2.0.1] - 2022-06-21
 
 ### Fixed
