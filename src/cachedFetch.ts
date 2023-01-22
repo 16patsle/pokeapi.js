@@ -69,7 +69,7 @@ export default async function cachedFetch(
       // way we're being un-intrusive.
       const content = await response.clone().text();
       const db = await idbStorage.getDB();
-      idbStorage.put(db, cacheKey, content)
+      idbStorage.put(db, cacheKey, content);
       db.close();
     }
   }

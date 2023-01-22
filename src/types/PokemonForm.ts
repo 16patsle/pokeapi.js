@@ -1,4 +1,4 @@
-import type { Name, NamedAPIResource } from "./Common";
+import type { Name, NamedAPIResource } from './Common';
 
 export type PokemonForm = {
   /**
@@ -69,7 +69,7 @@ type PokemonFormType = {
    * The type the referenced Form has.
    */
   type: NamedAPIResource;
-}
+};
 
 type PokemonFormSprites = {
   /**

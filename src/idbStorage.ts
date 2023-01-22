@@ -9,8 +9,8 @@ interface CacheDBSchema extends DBSchema {
       data: string;
     };
     indexes: {
-      whenCached: number
-    }
+      whenCached: number;
+    };
   };
 }
 
@@ -25,8 +25,8 @@ export async function getDB() {
         unique: false,
       });
 
-      await objectStore.transaction.done
-    }
+      await objectStore.transaction.done;
+    },
   });
   return db;
 }
@@ -37,7 +37,11 @@ export async function get(db: IDBPDatabase<CacheDBSchema>, cacheKey: string) {
   return store.get(cacheKey);
 }
 
-export async function put(db: IDBPDatabase<CacheDBSchema>, cacheKey: string, data: string) {
+export async function put(
+  db: IDBPDatabase<CacheDBSchema>,
+  cacheKey: string,
+  data: string
+) {
   const tx = db.transaction('cachedResources', 'readwrite');
   const store = tx.store;
   const whenCached = Date.now();
@@ -45,10 +49,13 @@ export async function put(db: IDBPDatabase<CacheDBSchema>, cacheKey: string, dat
     cacheKey,
     whenCached,
     data,
-  })
+  });
 }
 
-export async function deleteKey(db: IDBPDatabase<CacheDBSchema>, cacheKey: string) {
+export async function deleteKey(
+  db: IDBPDatabase<CacheDBSchema>,
+  cacheKey: string
+) {
   const tx = db.transaction('cachedResources', 'readwrite');
   const store = tx.store;
   return store.delete(cacheKey);

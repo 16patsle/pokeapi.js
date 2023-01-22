@@ -16,6 +16,17 @@ export type Description = {
   language: NamedAPIResource;
 };
 
+export type Effect = {
+  /**
+   * The localized effect text for an API resource in a specific language.
+   */
+  effect: string;
+  /**
+   * The language this effect is in.
+   */
+  language: NamedAPIResource;
+};
+
 export type FlavorText = {
   /**
    * The localized flavor text for an API resource in a specific language.
@@ -114,4 +125,23 @@ export type VersionGroupFlavorText = {
    * The version group which uses this flavor text.
    */
   version_group: NamedAPIResource;
+};
+
+export type ResourceList = {
+  /**
+   * The total number of resources available from this API.
+   */
+  count: number;
+  /**
+   * The URL for the next page in the list.
+   */
+  next: string | null;
+  /**
+   * The URL for the previous page in the list.
+   */
+  previous: string | null;
+  /**
+   * A list of named API resources.
+   */
+  results: NamedAPIResource[];
 };

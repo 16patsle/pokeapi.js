@@ -1,4 +1,4 @@
-import type { GenerationGameIndex, Name, NamedAPIResource } from "./Common";
+import type { GenerationGameIndex, Name, NamedAPIResource } from './Common';
 
 export type Location = {
   /**

@@ -1,8 +1,13 @@
 import { getResource } from './getResource';
-import type { NamedAPIResource } from './types/Common';
-import type { Pokemon } from './types/Pokemon';
-import type { PokemonForm } from './types/PokemonForm';
-import type { PokemonSpecies } from './types/PokemonSpecies';
+import type {
+  Pokemon,
+  PokemonColor,
+  PokemonForm,
+  PokemonSpecies,
+  ResourceList,
+  Stat,
+  Type,
+} from './types';
 
 export function getAbility(id: number | string) {
   return getResource('ability/' + id);
@@ -36,6 +41,8 @@ export function getPokemon(id: number | string): Promise<Pokemon> {
   return getResource('pokemon/' + id);
 }
 
+export function getPokemonColor(id: number): Promise<PokemonColor>;
+export function getPokemonColor(id: string): Promise<ResourceList>;
 export function getPokemonColor(id: number | string) {
   return getResource('pokemon-color/' + id);
 }
@@ -53,15 +60,19 @@ export function getPokemonShape(id: number | string) {
 }
 
 export function getPokemonSpecies(id: number): Promise<PokemonSpecies>;
-export function getPokemonSpecies(id: string): Promise<{ results: NamedAPIResource[] }>;
-export function getPokemonSpecies(id: number | string): Promise<PokemonSpecies | { results: NamedAPIResource[] }> {
+export function getPokemonSpecies(id: string): Promise<ResourceList>;
+export function getPokemonSpecies(id: number | string) {
   return getResource('pokemon-species/' + id);
 }
 
+export function getStat(id: number): Promise<Stat>;
+export function getStat(id: string): Promise<ResourceList>;
 export function getStat(id: number | string) {
   return getResource('stat/' + id);
 }
 
+export function getType(id: number): Promise<Type>;
+export function getType(id: string): Promise<ResourceList>;
 export function getType(id: number | string) {
   return getResource('type/' + id);
 }

@@ -1,7 +1,9 @@
 import { getResource } from './getResource';
 import type { EvolutionChain } from './types/EvolutionChain';
 
-export function getEvolutionChain(id: number | string): Promise<EvolutionChain> {
+export function getEvolutionChain(
+  id: number | string
+): Promise<EvolutionChain> {
   return getResource('evolution-chain/' + id);
 }
 

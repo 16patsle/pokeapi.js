@@ -1,4 +1,4 @@
-import type { NamedAPIResource } from "./Common";
+import type { NamedAPIResource } from './Common';
 
 export type EvolutionChain = {
   /**
@@ -98,7 +98,7 @@ export type EvolutionDetail = {
   /**
    * The required time of day. Day or night.
    */
-  time_of_day: "day" | "night";
+  time_of_day: 'day' | 'night';
   /**
    * Pokémon species for which this one must be traded.
    */

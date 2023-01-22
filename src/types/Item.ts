@@ -6,7 +6,7 @@ import type {
   NamedAPIResource,
   VerboseEffect,
   VersionGroupFlavorText,
-} from "./Common";
+} from './Common';
 
 export type Item = {
   /**

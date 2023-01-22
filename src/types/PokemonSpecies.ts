@@ -4,7 +4,7 @@ import type {
   FlavorText,
   Name,
   NamedAPIResource,
-} from "./Common";
+} from './Common';
 
 export type PokemonSpecies = {
   /**
@@ -78,11 +78,11 @@ export type PokemonSpecies = {
   /**
    * The Pokémon species that evolves into this Pokemon_species.
    */
-  evolves_from_species: NamedAPIResource;
+  evolves_from_species: NamedAPIResource | null;
   /**
    * The evolution chain this Pokémon species is a member of.
    */
-  evolution_chain: APIResource;
+  evolution_chain: APIResource | null;
   /**
    * The habitat this Pokémon species can be encountered in.
    */

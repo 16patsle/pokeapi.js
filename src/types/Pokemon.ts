@@ -1,4 +1,4 @@
-import type { NamedAPIResource, VersionGameIndex } from "./Common";
+import type { NamedAPIResource, VersionGameIndex } from './Common';
 
 export type Pokemon = {
   /**
@@ -89,7 +89,7 @@ type PokemonAbility = {
    * The ability the Pokémon may have.
    */
   ability: NamedAPIResource;
-}
+};
 
 type PokemonType = {
   /**
@@ -100,7 +100,7 @@ type PokemonType = {
    * The type the referenced Pokémon has.
    */
   type: NamedAPIResource;
-}
+};
 
 type PokemonTypePast = {
   /**
@@ -111,7 +111,7 @@ type PokemonTypePast = {
    * The types the referenced pokémon had up to and including the listed generation.
    */
   types: PokemonType[];
-}
+};
 
 type PokemonHeldItem = {
   /**
@@ -122,7 +122,7 @@ type PokemonHeldItem = {
    * The details of the different versions in which the item is held.
    */
   version_details: PokemonHeldItemVersion[];
-}
+};
 
 type PokemonHeldItemVersion = {
   /**
@@ -133,7 +133,7 @@ type PokemonHeldItemVersion = {
    * How often the item is held.
    */
   rarity: number;
-}
+};
 
 type PokemonMove = {
   /**
@@ -144,9 +144,9 @@ type PokemonMove = {
    * The details of the version in which the Pokémon can learn the move.
    */
   version_group_details: PokemonMoveVersion[];
-}
+};
 
-type PokemonMoveVersion =  {
+type PokemonMoveVersion = {
   /**
    * The method by which the move is learned.
    */
@@ -159,9 +159,9 @@ type PokemonMoveVersion =  {
    * The minimum level to learn the move.
    */
   level_learned_at: number;
-}
+};
 
-type PokemonStat = {
+export type PokemonStat = {
   /**
    * The stat the Pokémon has.
    */
@@ -210,7 +210,7 @@ type PokemonSprites = {
    */
   back_shiny_female: string | null;
   versions: {
-    "generation-vii": {
+    'generation-vii': {
       icons: {
         /**
          * The default depiction of this Pokémon from the front in battle.
